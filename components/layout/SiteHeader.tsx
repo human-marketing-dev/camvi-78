@@ -68,10 +68,10 @@ export function SiteHeader() {
           <Image
             src="/assets/logo/camvi78-logo-white.png"
             alt="Camvi 78"
-            width={220}
-            height={72}
+            width={300}
+            height={100}
             style={{
-              height: 72,
+              height: 100,
               width: "auto",
               display: "block",
               opacity: solid ? 0 : 1,
@@ -83,10 +83,10 @@ export function SiteHeader() {
           <Image
             src="/assets/logo/camvi78-logo-navy.png"
             alt="Camvi 78"
-            width={220}
-            height={72}
+            width={300}
+            height={100}
             style={{
-              height: 72,
+              height: 100,
               width: "auto",
               display: "block",
               opacity: solid ? 1 : 0,

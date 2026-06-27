@@ -38,9 +38,9 @@ export function SiteFooter() {
             <Image
               src="/assets/logo/camvi78-logo-white.png"
               alt="Camvi 78"
-              width={280}
-              height={96}
-              style={{ height: 96, width: "auto", marginBottom: 24 }}
+              width={360}
+              height={130}
+              style={{ height: 130, width: "auto", marginBottom: 24 }}
             />
             <p
               style={{
