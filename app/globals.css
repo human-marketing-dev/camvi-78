@@ -1,26 +1,240 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@500;600;700;800&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
+/* ============================================================
+   Camvi 78 — Design Tokens
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ---- Families --------------------------------------- */
+  --font-display: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+  --font-body:    'Mulish', 'Segoe UI', system-ui, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+  --font-serif:   'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+
+  /* ---- Warm architectural palette (landing) ----------- */
+  --ivory:      #F7F4EE;
+  --sand:       #EFE9DE;
+  --sand-2:     #E7E0D2;
+  --taupe:      #D8D0C0;
+  --stone-ink:  #6A6354;
+
+  /* ---- Weights ---------------------------------------- */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-heavy:    800;
+
+  /* ---- Type scale ------------------------------------- */
+  --text-2xs: 0.6875rem;
+  --text-xs:  0.75rem;
+  --text-sm:  0.875rem;
+  --text-md:  1rem;
+  --text-lg:  1.125rem;
+  --text-xl:  1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 2.875rem;
+  --text-5xl: 3.75rem;
+  --text-6xl: 4.75rem;
+
+  /* ---- Line heights ----------------------------------- */
+  --leading-tight:   1.08;
+  --leading-snug:    1.22;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+
+  /* ---- Letter spacing --------------------------------- */
+  --tracking-tighter: -0.022em;
+  --tracking-tight:   -0.012em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.04em;
+  --tracking-wider:   0.14em;
+
+  /* ---- Semantic roles --------------------------------- */
+  --display-font:   var(--font-display);
+  --display-weight: var(--weight-bold);
+  --display-tracking: var(--tracking-tight);
+  --heading-font:   var(--font-display);
+  --heading-weight: var(--weight-semibold);
+  --eyebrow-font:    var(--font-display);
+  --eyebrow-weight:  var(--weight-semibold);
+  --eyebrow-size:    var(--text-xs);
+  --eyebrow-tracking: var(--tracking-wider);
+  --body-font:   var(--font-body);
+  --body-size:   var(--text-md);
+  --body-weight: var(--weight-regular);
+  --body-leading: var(--leading-relaxed);
+
+  /* ---- Navy (primary) ---------------------------------- */
+  --navy-950: #11163a;
+  --navy-900: #161c42;
+  --navy-800: #1c2350;
+  --navy-700: #232a5c;
+  --navy-600: #2e3873;
+  --navy-500: #3d4a90;
+  --navy-400: #6470b0;
+  --navy-300: #97a0cb;
+  --navy-200: #c5cae2;
+  --navy-100: #e4e7f1;
+  --navy-50:  #f2f4f9;
+
+  /* ---- Teal (secondary) -------------------------------- */
+  --teal-700: #155b4c;
+  --teal-600: #1a6b58;
+  --teal-500: #1e7a63;
+  --teal-400: #2f9a7f;
+  --teal-300: #66bba6;
+  --teal-200: #aaddd0;
+  --teal-100: #dcf0ea;
+  --teal-50:  #eef8f5;
+
+  /* ---- Green (accent) ---------------------------------- */
+  --green-700: #3c7d2d;
+  --green-600: #499636;
+  --green-500: #57b044;
+  --green-400: #74c263;
+  --green-300: #9bd58f;
+  --green-200: #c6e7bf;
+  --green-100: #e6f4e2;
+  --green-50:  #f3faf1;
+
+  /* ---- Neutrals (cool slate) --------------------------- */
+  --ink-950: #0f1320;
+  --neutral-900: #1a1f2e;
+  --neutral-800: #2b3142;
+  --neutral-700: #3e4556;
+  --neutral-600: #565d70;
+  --neutral-500: #6f7689;
+  --neutral-400: #939aab;
+  --neutral-300: #bfc4d0;
+  --neutral-200: #dde0e8;
+  --neutral-150: #e8eaf0;
+  --neutral-100: #f1f3f7;
+  --neutral-50:  #f7f8fb;
+  --white: #ffffff;
+
+  /* ---- Semantic status --------------------------------- */
+  --success-600: #3c8a4e;
+  --success-500: #4aa15e;
+  --success-100: #e4f3e7;
+  --warning-600: #c08015;
+  --warning-500: #dca21d;
+  --warning-100: #fbf0d4;
+  --danger-600:  #b23a28;
+  --danger-500:  #c8442e;
+  --danger-100:  #f8e3de;
+  --info-600:    #2e3873;
+  --info-500:    #3d4a90;
+  --info-100:    #e4e7f1;
+
+  /* ---- Semantic aliases ------------------------------- */
+  --brand-primary:    var(--navy-700);
+  --brand-secondary:  var(--teal-500);
+  --brand-accent:     var(--green-500);
+
+  --bg-page:          var(--neutral-50);
+  --surface:          var(--white);
+  --surface-muted:    var(--neutral-50);
+  --surface-sunken:   var(--neutral-100);
+  --surface-inverse:  var(--navy-700);
+
+  --text-strong:      var(--navy-900);
+  --text-body:        var(--neutral-800);
+  --text-muted:       var(--neutral-500);
+  --text-subtle:      var(--neutral-400);
+  --text-on-dark:     var(--white);
+  --text-on-dark-muted: var(--navy-200);
+  --text-brand:       var(--navy-700);
+  --text-link:        var(--teal-600);
+
+  --border:           var(--neutral-200);
+  --border-strong:    var(--neutral-300);
+  --border-brand:     var(--navy-700);
+
+  --focus-ring:       color-mix(in srgb, var(--teal-500) 55%, transparent);
+
+  /* ---- Spacing scale ---------------------------------- */
+  --space-0:  0;
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.5rem;
+  --space-6:  2rem;
+  --space-7:  2.5rem;
+  --space-8:  3rem;
+  --space-9:  4rem;
+  --space-10: 5rem;
+  --space-11: 6.5rem;
+  --space-12: 8rem;
+
+  /* ---- Radii ------------------------------------------ */
+  --radius-xs:  4px;
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+
+  /* ---- Elevation (cool navy-tinted shadows) ----------- */
+  --shadow-xs: 0 1px 2px rgba(17, 22, 58, 0.06);
+  --shadow-sm: 0 1px 3px rgba(17, 22, 58, 0.08), 0 1px 2px rgba(17, 22, 58, 0.05);
+  --shadow-md: 0 6px 16px -4px rgba(17, 22, 58, 0.12), 0 2px 6px -2px rgba(17, 22, 58, 0.07);
+  --shadow-lg: 0 18px 40px -12px rgba(17, 22, 58, 0.18), 0 6px 14px -8px rgba(17, 22, 58, 0.10);
+  --shadow-xl: 0 32px 64px -20px rgba(17, 22, 58, 0.24);
+  --shadow-focus: 0 0 0 3px var(--focus-ring);
+
+  /* ---- Motion ----------------------------------------- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast:   140ms;
+  --duration-base:   220ms;
+  --duration-slow:   360ms;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ============================================================
+   Base / Element Defaults
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { -webkit-text-size-adjust: 100%; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: var(--body-leading);
+  font-weight: var(--weight-regular);
+  color: var(--text-body);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  font-weight: var(--heading-weight);
+  color: var(--text-strong);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+
+p { margin: 0; text-wrap: pretty; }
+
+a { color: var(--text-link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+::selection { background: var(--teal-200); color: var(--navy-900); }
+
+:focus-visible { outline: none; box-shadow: var(--shadow-focus); border-radius: var(--radius-sm); }
+
+/* ---- Brand helper classes ----------------------------- */
+.cv-rule {
+  height: 4px;
+  width: 56px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--navy-700) 0%, var(--teal-500) 50%, var(--green-500) 100%);
 }
