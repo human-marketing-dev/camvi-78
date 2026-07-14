@@ -143,6 +143,9 @@ export function SiteFooter() {
             © 2026 Camvi 78 · Desarrollo Inmobiliario
           </span>
           <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "rgba(255,255,255,0.5)" }}>
+            RFC CSO220923QR0 · CAMVI 78
+          </span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "rgba(255,255,255,0.5)" }}>
             Aviso de privacidad · Términos
           </span>
         </div>
