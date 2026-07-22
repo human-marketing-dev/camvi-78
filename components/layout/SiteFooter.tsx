@@ -56,13 +56,23 @@ export function SiteFooter() {
             </p>
             <div style={{ display: "flex", gap: 12, marginTop: 26 }}>
               {[
-                <svg key="ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width={18} height={18}><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" /></svg>,
-                <svg key="fb" viewBox="0 0 24 24" fill="currentColor" width={18} height={18}><path d="M14 8.5h2.2V5.6c-.4-.05-1.3-.15-2.4-.15-2.4 0-4 1.45-4 4.1V11.9H7v3.1h2.8V23h3.4v-8h2.7l.45-3.1H13.2V9.9c0-.9.25-1.4 1.6-1.4z" /></svg>,
-                <svg key="wa" viewBox="0 0 24 24" fill="currentColor" width={18} height={18}><path d="M12 2a10 10 0 0 0-8.6 15.05L2 22l5.1-1.34A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 0 1 6.93 12.6c-.2.32-.27.55-.16.9l.6 2.2-2.27-.6c-.32-.09-.55-.05-.83.12A8.2 8.2 0 1 1 12 3.8zm-2.55 3.6c-.18 0-.46.07-.7.33-.24.26-.92.9-.92 2.2s.94 2.55 1.07 2.73c.13.18 1.85 2.96 4.6 4.04 2.28.9 2.74.72 3.24.67.5-.04 1.6-.65 1.83-1.28.22-.63.22-1.17.16-1.28-.07-.11-.24-.18-.5-.31-.27-.13-1.6-.79-1.84-.88-.25-.09-.43-.13-.61.14-.18.26-.7.87-.86 1.05-.16.18-.31.2-.58.07-.27-.13-1.13-.42-2.15-1.33-.8-.71-1.33-1.58-1.49-1.85-.16-.27-.02-.41.12-.54.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.13-.6-1.45-.82-1.99-.21-.51-.43-.44-.6-.45z" /></svg>,
-              ].map((icon, i) => (
+                {
+                  href: "https://www.instagram.com/camvi.78/",
+                  label: "Instagram",
+                  icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" width={18} height={18}><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" /></svg>,
+                },
+                {
+                  href: "https://www.facebook.com/profile.php?id=61577144639107",
+                  label: "Facebook",
+                  icon: <svg viewBox="0 0 24 24" fill="currentColor" width={18} height={18}><path d="M14 8.5h2.2V5.6c-.4-.05-1.3-.15-2.4-.15-2.4 0-4 1.45-4 4.1V11.9H7v3.1h2.8V23h3.4v-8h2.7l.45-3.1H13.2V9.9c0-.9.25-1.4 1.6-1.4z" /></svg>,
+                },
+              ].map(({ href, label, icon }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
                   style={{
                     width: 42,
                     height: 42,
