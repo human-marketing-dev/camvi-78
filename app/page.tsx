@@ -50,16 +50,16 @@ const values = [
 ];
 
 const galleryItems = [
-  { src: "/assets/photos/los-olivos-gallery-acceso.jpg", cap: "Acceso principal", alt: "Acceso y caseta de Los Olivos" },
+  { src: "/aerea-los-olivos-2.webp", cap: "General vista aérea", alt: "Vista aérea general de Los Olivos" },
   { src: "/assets/photos/los-olivos-gallery-aerea.jpg", cap: "Parque central · vista aérea", alt: "Vista aérea del parque central" },
   { src: "/assets/photos/los-olivos-gallery-areas.jpg", cap: "Áreas verdes y senderos", alt: "Áreas verdes y senderos" },
 ];
 
 const figures = [
-  { n: "40%", l: "Del masterplan destinado a áreas verdes y comunes" },
-  { n: "100%", l: "De los lotes con certeza jurídica y escrituración" },
-  { n: "Directo", l: "Financiamiento sin intermediarios ni intereses ocultos" },
-  { n: "Sur de MTY", l: "Corredor con la mayor proyección de plusvalía de la región" },
+  { n: "01", t: "Directo", d: "Financiamiento sin intermediarios y sin intereses ocultos." },
+  { n: "02", t: "Escrituración", d: "Cada lote con certeza jurídica y título limpio. Sin promesas, con papeles." },
+  { n: "03", t: "Sur de MTY", d: "El corredor con mayor proyección de plusvalía de Nuevo León." },
+  { n: "04", t: "Dueño", d: "Tratas con quien desarrolla y comercializa la tierra. Sin revendedores de por medio." },
 ];
 
 export default function Page() {
@@ -107,7 +107,7 @@ export default function Page() {
             Tierra con <em style={{ fontStyle: "italic", color: "var(--green-300)" }}>permanencia</em>, patrimonio con visión.
           </h1>
           <p style={{ marginTop: 30, maxWidth: "46ch", color: "rgba(255,255,255,0.82)", fontSize: 18, lineHeight: 1.7, fontFamily: "var(--font-body)" }}>
-            Desarrollamos lotes campestres de alto valor en los corredores con mayor proyección de Monterrey. Espacios pensados para perdurar, crecer y heredarse.
+            Desarrollamos comunidades campestres y comercializamos terrenos y lotes en los corredores con mayor proyección de Nuevo León.
           </p>
           <div style={{ display: "flex", gap: 56, marginTop: 46, paddingTop: 30, borderTop: "1px solid rgba(255,255,255,0.18)", maxWidth: 760 }}>
             {[
@@ -203,10 +203,10 @@ export default function Page() {
           {/* Banner */}
           <div style={{ position: "relative", height: "60vh", minHeight: 460, overflow: "hidden", borderRadius: 2 }}>
             <Image
-              src="/assets/photos/los-olivos-banner.jpg"
-              alt="Los Olivos — acceso principal"
+              src="/aerea-los-olivos.webp"
+              alt="Los Olivos — vista aérea"
               fill
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "cover", objectPosition: "center 30%" }}
             />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(17,22,58,0.18) 0%, rgba(17,22,58,0) 35%, rgba(17,22,58,0.62) 100%)" }} />
             {/* Badge */}
@@ -308,15 +308,16 @@ export default function Page() {
           backgroundRepeat: "no-repeat", opacity: 0.45,
         }} />
         <div style={{ ...wrap, position: "relative", zIndex: 2 }}>
-          <div style={{ ...eyebrow, color: "var(--green-300)" }}>Por qué la tierra</div>
-          <h2 style={{ ...serifStyle, fontSize: "clamp(30px, 3.6vw, 52px)", color: "#fff", marginTop: 20, maxWidth: "18ch" }}>
-            La tierra es el único activo que no deja de <em style={{ fontStyle: "italic", color: "var(--green-300)" }}>crecer</em>.
+          <div style={{ ...eyebrow, color: "var(--green-300)" }}>Por qué Camvi 78</div>
+          <h2 style={{ ...serifStyle, fontSize: "clamp(30px, 3.6vw, 52px)", color: "#fff", marginTop: 20, maxWidth: "20ch" }}>
+            Comprar tierra es fácil. Comprarla <em style={{ fontStyle: "italic", color: "var(--green-300)" }}>bien</em> es otra cosa.
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, marginTop: 72 }}>
             {figures.map((f, i) => (
               <div key={f.n} style={{ padding: i === 0 ? "0 28px 0 0" : "0 28px", borderLeft: i === 0 ? 0 : "1px solid rgba(255,255,255,0.16)" }}>
-                <div style={{ ...serifStyle, fontWeight: 300, fontSize: "clamp(46px, 5vw, 72px)", color: "#fff", lineHeight: 1 }}>{f.n}</div>
-                <div style={{ fontSize: 14, lineHeight: 1.6, color: "rgba(255,255,255,0.66)", marginTop: 14, maxWidth: "22ch", fontFamily: "var(--font-body)" }}>{f.l}</div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.16em", color: "var(--green-300)", marginBottom: 14 }}>{f.n}</div>
+                <div style={{ ...serifStyle, fontWeight: 300, fontSize: "clamp(26px, 2.4vw, 36px)", color: "#fff", lineHeight: 1.1 }}>{f.t}</div>
+                <div style={{ fontSize: 14, lineHeight: 1.65, color: "rgba(255,255,255,0.62)", marginTop: 14, maxWidth: "22ch", fontFamily: "var(--font-body)" }}>{f.d}</div>
               </div>
             ))}
           </div>
