@@ -143,7 +143,7 @@ export default function Page() {
             />
             <div style={{ position: "absolute", inset: 14, border: "1px solid rgba(255,255,255,0.28)", zIndex: 1, pointerEvents: "none" }} />
             <div style={{ position: "absolute", left: 22, bottom: 20, zIndex: 2, fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 16, color: "rgba(255,255,255,0.85)" }}>
-              Los Olivos · Allende, N.L.
+              Los Olivos · Montemorelos, N.L.
             </div>
           </div>
 
@@ -196,7 +196,7 @@ export default function Page() {
               <h2 style={{ ...serifStyle, fontSize: "clamp(30px, 3.4vw, 50px)", marginTop: 18, color: "var(--navy-900)" }}>Donde todo comienza</h2>
             </div>
             <div style={{ fontFamily: "var(--font-display)", fontSize: 12, letterSpacing: "0.2em", color: "var(--stone-ink)", textTransform: "uppercase" }}>
-              Allende · Nuevo León
+              Montemorelos · Nuevo León
             </div>
           </div>
 
@@ -222,7 +222,7 @@ export default function Page() {
             <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "48px 56px", zIndex: 2 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, color: "var(--green-300)" }}>
                 <div style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--green-500)" }} />
-                <span style={{ fontFamily: "var(--font-display)", fontSize: 11.5, letterSpacing: "0.18em", textTransform: "uppercase" }}>Allende · Nuevo León</span>
+                <span style={{ fontFamily: "var(--font-display)", fontSize: 11.5, letterSpacing: "0.18em", textTransform: "uppercase" }}>Montemorelos · Nuevo León</span>
               </div>
               <h3 style={{ ...serifStyle, fontWeight: 300, fontSize: "clamp(44px, 6vw, 92px)", color: "#fff", margin: "10px 0 0", textShadow: "0 2px 24px rgba(11,14,32,0.5)" }}>
                 Los Olivos
@@ -244,7 +244,7 @@ export default function Page() {
                 {[
                   { v: "40%", k: "Áreas verdes y comunes" },
                   { v: "100%", k: "Certeza jurídica" },
-                  { v: "Allende", k: "Nuevo León" },
+                  { v: "Montemorelos", k: "Nuevo León" },
                 ].map((s) => (
                   <div key={s.k}>
                     <div style={{ ...serifStyle, fontWeight: 400, fontSize: 34, color: "var(--navy-800)", whiteSpace: "nowrap" }}>{s.v}</div>
@@ -264,13 +264,23 @@ export default function Page() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="#contacto"
-                style={{ display: "inline-flex", alignItems: "center", gap: 12, marginTop: 32, fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12.5, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--navy-700)", textDecoration: "none" }}
-              >
-                Agendar una visita
-                <div style={{ width: 30, height: 1, background: "var(--navy-700)" }} />
-              </a>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 32 }}>
+                <a
+                  href="https://residencialcampestrelosolivos.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ ...btnBase, alignSelf: "flex-start" }}
+                >
+                  Visitar sitio de Los Olivos
+                </a>
+                <a
+                  href="#contacto"
+                  style={{ display: "inline-flex", alignItems: "center", gap: 12, fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12.5, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--navy-700)", textDecoration: "none" }}
+                >
+                  Agendar una visita
+                  <div style={{ width: 30, height: 1, background: "var(--navy-700)" }} />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -313,6 +323,119 @@ export default function Page() {
         </div>
       </section>
 
+      {/* =================== PORTAFOLIO PREVIEW =================== */}
+      <section style={{ background: "var(--sand)", padding: "130px 0" }}>
+        <div style={wrap}>
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 32, marginBottom: 56 }}>
+            <div>
+              <div style={eyebrow}>Portafolio</div>
+              <h2 style={{ ...serifStyle, fontSize: "clamp(30px, 3.4vw, 50px)", marginTop: 18, color: "var(--navy-900)", maxWidth: "20ch" }}>
+                Terrenos y lotes <em style={{ fontStyle: "italic" }}>disponibles</em>
+              </h2>
+            </div>
+            <a
+              href="/portafolio"
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 600,
+                fontSize: 11,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "var(--navy-700)",
+                textDecoration: "none",
+                borderBottom: "1px solid var(--navy-300)",
+                paddingBottom: 4,
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+              }}
+            >
+              Ver portafolio completo →
+            </a>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+            {[
+              { id: "Acuaducto", type: "Lotes", tx: "Venta", area: "32,000 m²", detail: "16 lotes de 2,000 m²", txColor: "#166534", txBg: "#f0faf4" },
+              { id: "Chancaca", type: "Lotes", tx: "Venta", area: "15,477 m²", detail: "Glamping · 4 lotes", txColor: "#166534", txBg: "#f0faf4" },
+              { id: "R03", type: "Terreno", tx: "Venta", area: "62,668 m²", detail: "Terreno completo", txColor: "#166534", txBg: "#f0faf4" },
+            ].map((p) => (
+              <article
+                key={p.id}
+                style={{
+                  background: "#fff",
+                  border: "1px solid var(--taupe)",
+                  display: "flex",
+                  flexDirection: "column",
+                  overflow: "hidden",
+                }}
+              >
+                {/* image placeholder */}
+                <div
+                  style={{
+                    height: 168,
+                    background: "linear-gradient(140deg, var(--sand) 0%, var(--sand-2) 70%, var(--taupe) 100%)",
+                    position: "relative",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <svg width="52" height="40" viewBox="0 0 56 44" fill="none" style={{ opacity: 0.2 }}>
+                    <path d="M0 44 L14 22 L22 32 L34 14 L56 44Z" fill="var(--stone-ink)" />
+                    <circle cx="42" cy="10" r="8" fill="var(--stone-ink)" />
+                  </svg>
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 3, background: "var(--green-500)" }} />
+                </div>
+
+                <div style={{ padding: "24px 24px 22px", flex: 1, display: "flex", flexDirection: "column", gap: 16 }}>
+                  <div>
+                    <div style={{ display: "flex", gap: 6, marginBottom: 10, flexWrap: "wrap" }}>
+                      <span style={{ fontFamily: "var(--font-display)", fontSize: 9.5, letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 600, padding: "3px 9px", background: "var(--sand)", color: "var(--stone-ink)" }}>
+                        {p.type}
+                      </span>
+                      <span style={{ fontFamily: "var(--font-display)", fontSize: 9.5, letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 600, padding: "3px 9px", background: p.txBg, color: p.txColor }}>
+                        {p.tx}
+                      </span>
+                    </div>
+                    <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 300, fontSize: 26, color: "var(--navy-900)", margin: 0, lineHeight: 1.1 }}>
+                      {p.id}
+                    </h3>
+                  </div>
+
+                  <div style={{ borderTop: "1px solid var(--sand-2)", paddingTop: 14 }}>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--stone-ink)", display: "block", marginBottom: 3 }}>
+                      Superficie total
+                    </span>
+                    <span style={{ fontFamily: "var(--font-serif)", fontSize: 30, fontWeight: 300, color: "var(--navy-900)", lineHeight: 1 }}>
+                      {p.area}
+                    </span>
+                    <span style={{ display: "block", fontFamily: "var(--font-body)", fontSize: 13, color: "var(--stone-ink)", marginTop: 6 }}>
+                      {p.detail}
+                    </span>
+                  </div>
+
+                  <div style={{ marginTop: "auto" }}>
+                    <a
+                      href="/portafolio"
+                      style={{ fontFamily: "var(--font-display)", fontSize: 10.5, letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 600, color: "var(--navy-700)", textDecoration: "none", borderBottom: "1px solid var(--navy-300)", paddingBottom: 3 }}
+                    >
+                      Solicitar información
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div style={{ marginTop: 48, display: "flex", justifyContent: "center" }}>
+            <a href="/portafolio" style={{ ...btnBase, background: "var(--navy-800)" }}>
+              Ver todas las propiedades
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ==================== CTA / CONTACTO ==================== */}
       <section id="contacto" style={{ position: "relative", background: "var(--navy-700)", overflow: "hidden", padding: "120px 0" }}>
         <div style={{
@@ -335,7 +458,7 @@ export default function Page() {
               {[
                 { k: "Teléfono", v: "81 1234 5678", href: "tel:+528112345678" },
                 { k: "Correo", v: "hola@camvi78.mx", href: "mailto:hola@camvi78.mx" },
-                { k: "Ubicación", v: "Allende, N.L.", href: undefined },
+                { k: "Ubicación", v: "Montemorelos, N.L.", href: undefined },
               ].map((ci) => (
                 <div key={ci.k}>
                   <div style={{ fontFamily: "var(--font-display)", fontSize: 10.5, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--green-300)" }}>{ci.k}</div>

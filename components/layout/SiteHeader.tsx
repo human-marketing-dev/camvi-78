@@ -3,17 +3,20 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export function SiteHeader() {
-  const [solid, setSolid] = useState(false);
+export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
+  const [scrollSolid, setScrollSolid] = useState(false);
 
   useEffect(() => {
+    if (alwaysSolid) return;
     function onScroll() {
-      setSolid(window.scrollY > window.innerHeight * 0.7);
+      setScrollSolid(window.scrollY > window.innerHeight * 0.7);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [alwaysSolid]);
+
+  const solid = alwaysSolid || scrollSolid;
 
   const linkStyle: React.CSSProperties = {
     fontFamily: "var(--font-display)",
@@ -64,7 +67,7 @@ export function SiteHeader() {
           gap: 32,
         }}
       >
-        <a href="#top" style={{ display: "flex", position: "relative", alignItems: "center" }}>
+        <a href="/" style={{ display: "flex", position: "relative", alignItems: "center" }}>
           <Image
             src="/assets/logo/camvi78-logo-white.png"
             alt="Camvi 78"
@@ -98,10 +101,11 @@ export function SiteHeader() {
 
         <nav style={{ display: "flex", gap: 38, alignItems: "center" }}>
           {[
-            ["#desarrollos", "Desarrollos"],
-            ["#filosofia", "Filosofía"],
-            ["#valores", "Valores"],
-            ["#contacto", "Contacto"],
+            ["/portafolio", "Portafolio"],
+            ["/#desarrollos", "Desarrollos"],
+            ["/#filosofia", "Filosofía"],
+            ["/#valores", "Valores"],
+            ["/#contacto", "Contacto"],
           ].map(([href, label]) => (
             <a key={href} href={href} style={linkStyle}>
               {label}
@@ -109,7 +113,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <a href="#contacto" style={ctaStyle}>
+        <a href="/#contacto" style={ctaStyle}>
           Agendar una cita
         </a>
       </div>

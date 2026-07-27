@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Camvi 78 — Desarrollo Inmobiliario",
   description: "Desarrollamos lotes campestres de alto valor en los corredores con mayor proyección de Monterrey. Espacios pensados para perdurar, crecer y heredarse.",
-  keywords: ["lotes campestres", "Monterrey", "plusvalía", "desarrollo inmobiliario", "Camvi 78", "Los Olivos", "Allende"],
+  keywords: ["lotes campestres", "Monterrey", "plusvalía", "desarrollo inmobiliario", "Camvi 78", "Los Olivos", "Montemorelos"],
 };
 
 export default function RootLayout({
