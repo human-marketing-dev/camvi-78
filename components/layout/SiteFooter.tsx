@@ -38,9 +38,9 @@ export function SiteFooter() {
             <Image
               src="/assets/logo/camvi78-logo-white.png"
               alt="Camvi 78"
-              width={360}
-              height={130}
-              style={{ height: 130, width: "auto", marginBottom: 24 }}
+              width={788}
+              height={775}
+              style={{ height: "130px", width: "auto", marginBottom: 24 }}
             />
             <p
               style={{
@@ -102,7 +102,7 @@ export function SiteFooter() {
             },
             {
               title: "Contacto",
-              links: [["tel:+528112345678", "81 1234 5678"], ["mailto:hola@camvi78.mx", "hola@camvi78.mx"], ["#contacto", "WhatsApp"]],
+              links: [["tel:+528120404040", "81 2040 4040"], ["mailto:hola@camvi78.mx", "hola@camvi78.mx"], ["#contacto", "WhatsApp"]],
             },
           ].map((col) => (
             <div key={col.title}>

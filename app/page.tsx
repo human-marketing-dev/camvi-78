@@ -81,6 +81,7 @@ export default function Page() {
             src="/assets/photos/hero-bg.jpg"
             alt="Los Olivos — paisaje"
             fill
+            sizes="100vw"
             style={{ objectFit: "cover" }}
             priority
           />
@@ -139,6 +140,7 @@ export default function Page() {
               src="/assets/photos/los-olivos-manifesto.jpg"
               alt="Los Olivos — camino interior arbolado"
               fill
+              sizes="(max-width: 768px) 100vw, 46vw"
               style={{ objectFit: "cover" }}
             />
             <div style={{ position: "absolute", inset: 14, border: "1px solid rgba(255,255,255,0.28)", zIndex: 1, pointerEvents: "none" }} />
@@ -206,6 +208,7 @@ export default function Page() {
               src="/aerea-los-olivos.webp"
               alt="Los Olivos — vista aérea"
               fill
+              sizes="100vw"
               style={{ objectFit: "cover", objectPosition: "center 30%" }}
             />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(17,22,58,0.18) 0%, rgba(17,22,58,0) 35%, rgba(17,22,58,0.62) 100%)" }} />
@@ -288,7 +291,7 @@ export default function Page() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18, marginTop: 64 }}>
             {galleryItems.map((g) => (
               <div key={g.cap} style={{ position: "relative", aspectRatio: "3/2", overflow: "hidden", borderRadius: 2, background: "var(--navy-800)" }}>
-                <Image src={g.src} alt={g.alt} fill style={{ objectFit: "cover" }} />
+                <Image src={g.src} alt={g.alt} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: "cover" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(17,22,58,0) 50%, rgba(17,22,58,0.5) 100%)" }} />
                 <div style={{ position: "absolute", left: 16, bottom: 14, zIndex: 2, fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 14, color: "rgba(255,255,255,0.9)", textShadow: "0 1px 10px rgba(11,14,32,0.6)" }}>
                   {g.cap}
@@ -300,7 +303,7 @@ export default function Page() {
       </section>
 
       {/* ==================== CIFRAS ==================== */}
-      <section style={{ position: "relative", background: "var(--navy-900)", color: "#fff", overflow: "hidden", padding: "120px 0" }}>
+      <section style={{ display: "none" }}>
         <div style={{
           position: "absolute", inset: 0,
           backgroundImage: "url(/assets/patterns/contour-lines.svg)",
@@ -457,7 +460,7 @@ export default function Page() {
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 32, marginTop: 38 }}>
               {[
-                { k: "Teléfono", v: "81 1234 5678", href: "tel:+528112345678" },
+                { k: "Teléfono", v: "81 2040 4040", href: "tel:+528120404040" },
                 { k: "Correo", v: "hola@camvi78.mx", href: "mailto:hola@camvi78.mx" },
                 { k: "Ubicación", v: "Montemorelos, N.L.", href: undefined },
               ].map((ci) => (

@@ -71,10 +71,10 @@ export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
           <Image
             src="/assets/logo/camvi78-logo-white.png"
             alt="Camvi 78"
-            width={300}
-            height={100}
+            width={788}
+            height={775}
             style={{
-              height: 100,
+              height: "100px",
               width: "auto",
               display: "block",
               opacity: solid ? 0 : 1,
@@ -86,10 +86,10 @@ export function SiteHeader({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
           <Image
             src="/assets/logo/camvi78-logo-navy.png"
             alt="Camvi 78"
-            width={300}
-            height={100}
+            width={788}
+            height={775}
             style={{
-              height: 100,
+              height: "100px",
               width: "auto",
               display: "block",
               opacity: solid ? 1 : 0,
