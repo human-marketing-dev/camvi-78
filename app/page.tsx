@@ -461,7 +461,7 @@ export default function Page() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: 32, marginTop: 38 }}>
               {[
                 { k: "Teléfono", v: "81 2040 4040", href: "tel:+528120404040" },
-                { k: "Correo", v: "hola@camvi78.mx", href: "mailto:hola@camvi78.mx" },
+                { k: "Correo", v: "info@camvi78.com", href: "mailto:info@camvi78.com" },
                 { k: "Ubicación", v: "Montemorelos, N.L.", href: undefined },
               ].map((ci) => (
                 <div key={ci.k}>

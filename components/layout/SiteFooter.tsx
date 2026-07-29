@@ -102,7 +102,7 @@ export function SiteFooter() {
             },
             {
               title: "Contacto",
-              links: [["tel:+528120404040", "81 2040 4040"], ["mailto:hola@camvi78.mx", "hola@camvi78.mx"], ["#contacto", "WhatsApp"]],
+              links: [["tel:+528120404040", "81 2040 4040"], ["mailto:info@camvi78.com", "info@camvi78.com"], ["#contacto", "WhatsApp"]],
             },
           ].map((col) => (
             <div key={col.title}>
