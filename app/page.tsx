@@ -456,7 +456,7 @@ export default function Page() {
               Conoce el lugar donde comienza tu patrimonio.
             </h2>
             <p style={{ color: "rgba(255,255,255,0.78)", fontSize: 17, maxWidth: "44ch", lineHeight: 1.7, margin: "26px 0 0", fontFamily: "var(--font-body)" }}>
-              Te acompañamos con una visita guiada y el plan maestro completo de Los Olivos. Sin compromiso, con la asesoría de quienes conocen la tierra.
+              Te acompañamos con información completa de nuestros desarrollos y del portafolio de terrenos y lotes disponibles. Sin compromiso, con la asesoría de quienes conocen la tierra.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 32, marginTop: 38 }}>
               {[
