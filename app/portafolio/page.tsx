@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 
@@ -22,6 +23,7 @@ interface Property {
   lots?: Lot[];
   use?: string;
   placeholder?: boolean;
+  image?: string;
 }
 
 const properties: Property[] = [
@@ -30,6 +32,7 @@ const properties: Property[] = [
     type: "lotes",
     transaction: "venta",
     totalArea: 32000,
+    image: "/Acueducto.webp",
     lots: Array.from({ length: 16 }, (_, i) => ({ label: `Lote ${String(i + 1).padStart(2, "0")}`, area: 2000 })),
   },
   {
@@ -37,6 +40,7 @@ const properties: Property[] = [
     type: "lotes",
     transaction: "venta",
     totalArea: 1500,
+    image: "/Altamira.webp",
     lots: [
       { label: "Lote 01", area: 750 },
       { label: "Lote 02", area: 750 },
@@ -54,6 +58,7 @@ const properties: Property[] = [
     type: "lotes",
     transaction: "venta",
     totalArea: 25000,
+    image: "/Lotes La Quinta.webp",
     lots: Array.from({ length: 5 }, (_, i) => ({ label: `Lote ${String(i + 1).padStart(2, "0")}`, area: 5000 })),
   },
   {
@@ -62,6 +67,7 @@ const properties: Property[] = [
     transaction: "venta",
     totalArea: 15477,
     use: "Glamping",
+    image: "/Chancaca.webp",
     lots: [
       { label: "Lote 01", area: 4148 },
       { label: "Lote 02", area: 4510 },
@@ -74,6 +80,7 @@ const properties: Property[] = [
     type: "terreno",
     transaction: "venta",
     totalArea: 26650.03,
+    image: "/v-01.webp",
   },
   {
     id: "V02",
@@ -81,18 +88,21 @@ const properties: Property[] = [
     type: "terreno",
     transaction: "venta",
     totalArea: 11010.08,
+    image: "/v-02.webp",
   },
   {
     id: "R01",
     type: "terreno",
     transaction: "renta",
     totalArea: 10000,
+    image: "/r-01.webp",
   },
   {
     id: "R02",
     type: "lotes",
     transaction: "renta",
     totalArea: 21885.47,
+    image: "/r-02.webp",
     lots: [
       { label: "Lote 01", area: 10000 },
       { label: "Lote 02", area: 2971.37 },
@@ -106,30 +116,35 @@ const properties: Property[] = [
     type: "terreno",
     transaction: "venta",
     totalArea: 62668.24,
+    image: "/r-03.webp",
   },
   {
     id: "R04",
     type: "terreno",
     transaction: "renta",
     totalArea: 790.05,
+    image: "/r-04.webp",
   },
   {
     id: "R05",
     type: "terreno",
     transaction: "renta",
     totalArea: 15145.74,
+    image: "/r-05.webp",
   },
   {
     id: "R06",
     type: "terreno",
     transaction: "renta",
     totalArea: 16950.02,
+    image: "/r-06.webp",
   },
   {
     id: "R07",
     type: "terreno",
     transaction: "renta",
     totalArea: 18054.4,
+    image: "/r-07.webp",
   },
 ];
 
@@ -186,40 +201,51 @@ function PropertyCard({ p }: { p: Property }) {
         overflow: "hidden",
       }}
     >
-      {/* image placeholder */}
+      {/* image */}
       <div
         style={{
-          height: 190,
-          background: "linear-gradient(140deg, var(--sand) 0%, var(--sand-2) 70%, var(--taupe) 100%)",
+          aspectRatio: "4/3",
           position: "relative",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
           overflow: "hidden",
           flexShrink: 0,
+          background: "linear-gradient(140deg, var(--sand) 0%, var(--sand-2) 70%, var(--taupe) 100%)",
         }}
       >
-        <svg width="56" height="44" viewBox="0 0 56 44" fill="none" style={{ opacity: 0.22 }}>
-          <path d="M0 44 L14 22 L22 32 L34 14 L56 44Z" fill="var(--stone-ink)" />
-          <circle cx="42" cy="10" r="8" fill="var(--stone-ink)" />
-        </svg>
-        <span
-          style={{
-            position: "absolute",
-            bottom: 10,
-            right: 14,
-            fontFamily: "var(--font-mono)",
-            fontSize: 9,
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "var(--stone-ink)",
-            opacity: 0.5,
-          }}
-        >
-          Imagen próximamente
-        </span>
+        {p.image ? (
+          <Image
+            src={p.image}
+            alt={p.id}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{ objectFit: "cover" }}
+          />
+        ) : (
+          <>
+            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <svg width="56" height="44" viewBox="0 0 56 44" fill="none" style={{ opacity: 0.22 }}>
+                <path d="M0 44 L14 22 L22 32 L34 14 L56 44Z" fill="var(--stone-ink)" />
+                <circle cx="42" cy="10" r="8" fill="var(--stone-ink)" />
+              </svg>
+            </div>
+            <span
+              style={{
+                position: "absolute",
+                bottom: 10,
+                right: 14,
+                fontFamily: "var(--font-mono)",
+                fontSize: 9,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "var(--stone-ink)",
+                opacity: 0.5,
+              }}
+            >
+              Imagen próximamente
+            </span>
+          </>
+        )}
         {/* accent bar at bottom of image */}
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 4, background: accent }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 4, background: accent, zIndex: 1 }} />
       </div>
 
       <div style={{ padding: "28px 28px 24px", flex: 1, display: "flex", flexDirection: "column", gap: 20 }}>

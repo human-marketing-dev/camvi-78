@@ -359,9 +359,9 @@ export default function Page() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
             {[
-              { id: "Acuaducto", type: "Lotes", tx: "Venta", area: "32,000 m²", detail: "16 lotes de 2,000 m²", txColor: "#166534", txBg: "#f0faf4" },
-              { id: "Chancaca", type: "Lotes", tx: "Venta", area: "15,477 m²", detail: "Glamping · 4 lotes", txColor: "#166534", txBg: "#f0faf4" },
-              { id: "R03", type: "Terreno", tx: "Venta", area: "62,668 m²", detail: "Terreno completo", txColor: "#166534", txBg: "#f0faf4" },
+              { id: "Acuaducto", type: "Lotes", tx: "Venta", area: "32,000 m²", detail: "16 lotes de 2,000 m²", txColor: "#166534", txBg: "#f0faf4", image: "/Acueducto.webp" },
+              { id: "Chancaca", type: "Lotes", tx: "Venta", area: "15,477 m²", detail: "Glamping · 4 lotes", txColor: "#166534", txBg: "#f0faf4", image: "/Chancaca.webp" },
+              { id: "R03", type: "Terreno", tx: "Venta", area: "62,668 m²", detail: "Terreno completo", txColor: "#166534", txBg: "#f0faf4", image: "/r-03.webp" },
             ].map((p) => (
               <article
                 key={p.id}
@@ -373,23 +373,23 @@ export default function Page() {
                   overflow: "hidden",
                 }}
               >
-                {/* image placeholder */}
+                {/* image */}
                 <div
                   style={{
-                    height: 168,
-                    background: "linear-gradient(140deg, var(--sand) 0%, var(--sand-2) 70%, var(--taupe) 100%)",
+                    aspectRatio: "4/3",
                     position: "relative",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    overflow: "hidden",
                     flexShrink: 0,
                   }}
                 >
-                  <svg width="52" height="40" viewBox="0 0 56 44" fill="none" style={{ opacity: 0.2 }}>
-                    <path d="M0 44 L14 22 L22 32 L34 14 L56 44Z" fill="var(--stone-ink)" />
-                    <circle cx="42" cy="10" r="8" fill="var(--stone-ink)" />
-                  </svg>
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 3, background: "var(--green-500)" }} />
+                  <Image
+                    src={p.image}
+                    alt={p.id}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 3, background: "var(--green-500)", zIndex: 1 }} />
                 </div>
 
                 <div style={{ padding: "24px 24px 22px", flex: 1, display: "flex", flexDirection: "column", gap: 16 }}>
