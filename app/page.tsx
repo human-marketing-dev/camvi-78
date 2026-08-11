@@ -75,16 +75,17 @@ export default function Page() {
 
       {/* ==================== HERO ==================== */}
       <section id="top" style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
-        {/* Background photo */}
+        {/* Background video */}
         <div style={{ position: "absolute", inset: 0 }}>
-          <Image
-            src="/assets/photos/hero-bg.jpg"
-            alt="Los Olivos — paisaje"
-            fill
-            sizes="100vw"
-            style={{ objectFit: "cover" }}
-            priority
-          />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          >
+            <source src="/hero.mp4" type="video/mp4" />
+          </video>
         </div>
         {/* Gradient overlays */}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(17,22,58,0.82) 0%, rgba(17,22,58,0.46) 42%, rgba(17,22,58,0.16) 100%)" }} />

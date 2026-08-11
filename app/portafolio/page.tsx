@@ -47,14 +47,15 @@ const properties: Property[] = [
     ],
   },
   {
-    id: "La Quinta I",
+    id: "La Quinta",
     type: "lotes",
     transaction: "venta",
     totalArea: null,
+    image: "/la-quinta-propiedad.webp",
     placeholder: true,
   },
   {
-    id: "La Quinta II",
+    id: "Lotes la Quinta",
     type: "lotes",
     transaction: "venta",
     totalArea: 25000,
