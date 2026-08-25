@@ -63,10 +63,33 @@ const figures = [
 ];
 
 export default function Page() {
-  const [form, setForm] = useState({ nombre: "", telefono: "", correo: "", interes: "Quiero información de lotes", mensaje: "" });
+  const [form, setForm] = useState({ nombre: "", telefono: "", correo: "", interes: "Quiero información de lotes", mensaje: "", _hp: "" });
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [formError, setFormError] = useState("");
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setLoading(true);
+    setFormError("");
+    try {
+      const res = await fetch("/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) { setFormError(data.error ?? "Error al enviar. Intenta de nuevo."); }
+      else { setSent(true); }
+    } catch {
+      setFormError("Error de conexión. Intenta de nuevo.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -479,7 +502,15 @@ export default function Page() {
 
           {/* Form */}
           <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: 4, padding: 40, backdropFilter: "blur(6px)" }}>
-            <form onSubmit={(e) => e.preventDefault()}>
+            {sent ? (
+              <div style={{ padding: "48px 32px", textAlign: "center" }}>
+                <div style={{ fontFamily: "var(--font-serif)", fontSize: 28, color: "#fff", marginBottom: 14 }}>¡Mensaje enviado!</div>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: 16, color: "rgba(255,255,255,0.72)", lineHeight: 1.7, margin: 0 }}>
+                  Gracias por contactarnos. Te respondemos en menos de 24 horas.
+                </p>
+              </div>
+            ) : (
+            <form onSubmit={handleSubmit}>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 0 }}>
                 {[
                   { name: "nombre", label: "Nombre", type: "text", placeholder: "Tu nombre" },
@@ -541,16 +572,27 @@ export default function Page() {
                 />
               </div>
 
+              {/* honeypot — oculto para humanos, visible para bots */}
+              <input name="_hp" value={form._hp} onChange={handleChange} style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+
+              {formError && (
+                <p style={{ fontFamily: "var(--font-body)", fontSize: 13, color: "#fca5a5", margin: "0 0 12px", lineHeight: 1.5 }}>
+                  {formError}
+                </p>
+              )}
+
               <button
                 type="submit"
-                style={{ ...btnBase, width: "100%", justifyContent: "center", marginTop: 6 }}
+                disabled={loading}
+                style={{ ...btnBase, width: "100%", justifyContent: "center", marginTop: 6, opacity: loading ? 0.7 : 1, cursor: loading ? "not-allowed" : "pointer" }}
               >
-                Solicitar información
+                {loading ? "Enviando…" : "Solicitar información"}
               </button>
               <p style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", margin: "16px 0 0", textAlign: "center", lineHeight: 1.5, fontFamily: "var(--font-body)" }}>
                 Al enviar aceptas nuestro aviso de privacidad. Te contactamos en menos de 24 horas.
               </p>
             </form>
+            )}
           </div>
         </div>
       </section>
